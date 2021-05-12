@@ -6,7 +6,8 @@
     String lastName = request.getParameter("lastName");
     String email = request.getParameter("email");
     Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/loginwebapp","root", "root");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/loginwebapp","root", "Sumit@12345");
+
 
     String query = "INSERT INTO USER1 (first_name, last_name, email, username, password)"
 			+ "VALUES ('"+firstName+"','"+lastName+"','"+email+"','"+username+"','"+password+"')";

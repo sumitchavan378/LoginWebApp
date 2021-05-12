@@ -4,7 +4,7 @@
     String password = request.getParameter("password");
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/loginwebapp",
-            "root", "root");
+            "root", "Sumit@12345");
     Statement st = con.createStatement();
     String query = "SELECT username,password from USER1 where username='" + username + "' and password='" +password + "'";
     ResultSet rs;
