@@ -4,7 +4,6 @@ pipeline
 	parameters
 	{
 		choice(name: 'Server', choices: ['Loginwebapp1','Loginwebapp2'])
-		string(name: 'password', trim: true)
 	}
 	stages
 	{
@@ -38,19 +37,19 @@ pipeline
 					echo "You have selected $Server to deploy WAR"
 					if ( $Server == LoginWebApp1 ) 
 					{
-					sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
+					sshpass -p devops scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
 				
 				   	echo "WAR has been deployed on $Server"
 					}
 					else if ( $Server == LoginWebApp2 )
 					{
-					sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/
+					sshpass -p devops scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/
 					echo "WAR has been deployed on $Server"
 					}
 					else if ( $all == true )   
 					{
-					sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
-	    			        sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/
+					sshpass -p devops scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
+	    			        sshpass -p devops scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/
 				  	echo "Deployed WAR to ALL Servers"
 					}
 					else
