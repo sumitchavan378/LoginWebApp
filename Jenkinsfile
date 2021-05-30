@@ -36,14 +36,11 @@ pipeline
 				{
 					echo "You have selected $Server to deploy WAR"
 					if ( $Server == 'LoginWebApp1' ) 
-					{
-						sh 'sshpass -p "devops" scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
-				
+					{			
 				   		echo "WAR has been deployed on $Server"
 					}
 					else if ( $Server == 'LoginWebApp2' )
 					{
-						sh 'sshpass -p "devops" scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/'
 						echo "WAR has been deployed on $Server"
 					}
 					else
