@@ -37,11 +37,11 @@ pipeline
 					echo "You have selected $Server to deploy WAR"
 					if ( Server == 'LoginWebApp1' ) 
 					{			
-				   		echo "WAR has been deployed on $Server"
+				   		echo "WAR has been deployed on Loginwebapp1"
 					}
 					else if ( Server == 'LoginWebApp2' )
 					{
-						echo "WAR has been deployed on $Server"
+						echo "WAR has been deployed on Loginwebapp2"
 					}
 					else
 					{
