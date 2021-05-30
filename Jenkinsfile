@@ -4,7 +4,7 @@ pipeline
 	parameters
 	{
 		choice(name: 'Server', choices: ['LoginWebApp1','LoginWebApp2']),
-		string(name: 'password')
+		string(name: 'password', trim: true)
 	}
 	stages
 	{
