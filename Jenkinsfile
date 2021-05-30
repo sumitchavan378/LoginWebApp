@@ -3,8 +3,7 @@ pipeline
 	agent any
 	parameters
 	{
-		choice
-		(name: 'Server', choices: ['Loginwebapp1','Loginwebapp2'])
+		choice(name: 'Server', choices: ['Loginwebapp1','Loginwebapp2'])
 	}
 	stages
 	{
