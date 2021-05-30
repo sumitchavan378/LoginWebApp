@@ -43,10 +43,6 @@ pipeline
 					{
 						echo "WAR has been deployed on Loginwebapp2"
 					}
-					else
-					{
-						echo "Wrong Choice"
-					}
 					
 
 				}
