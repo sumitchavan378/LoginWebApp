@@ -34,7 +34,6 @@ pipeline
 			{
 				script
 				{
-					#!/bin/bash
 					echo "You have selected $Server to deploy WAR"
 					if [ $Server == LoginWebApp1 ] 
 					then
