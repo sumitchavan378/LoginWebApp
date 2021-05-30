@@ -35,23 +35,28 @@ pipeline
 				script
 				{
 					echo "You have selected $Server to deploy WAR"
-					if [ $Server == LoginWebApp1 ] 
-					then
+					if ( $Server == LoginWebApp1 ) 
+					{
 					sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
 				
 				   	echo "WAR has been deployed on $Server"
-					elif [ $Server == LoginWebApp2 ]
-					then
+					}
+					else if ( $Server == LoginWebApp2 )
+					{
 					sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/
 					echo "WAR has been deployed on $Server"
-					elif [ $all == true ]   
-					then
+					}
+					else if ( $all == true )   
+					{
 					sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
 	    			        sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/
 				  	echo "Deployed WAR to ALL Servers"
+					}
 					else
+					{
 					echo "Wrong Choice"
-					fi
+					}
+					
 
 				}
 			}
