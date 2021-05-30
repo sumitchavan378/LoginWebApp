@@ -7,14 +7,14 @@ pipeline
 		{
 			steps
 			{
-				checkout SCM
+				checkout scm
 			}
 		}
 		stage('Build')
 		{
 			steps
 			{
-				sh '/root/apache-maven-3.6.3/bin mvn install'
+				sh '/root/apache-maven-3.6.3/bin/mvn install'
 			}
 		}
 		stage('Deployment')
