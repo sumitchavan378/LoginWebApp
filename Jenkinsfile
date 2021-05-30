@@ -1,6 +1,11 @@
 pipeline
 {
 	agent any
+	parameters
+	{
+		choice
+		(name: 'Server', choices: ['Loginwebapp1','Loginwebapp2'])
+	}
 	stages
 	{
 		stage('Clone')
