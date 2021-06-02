@@ -7,8 +7,8 @@ pipeline
 	}
 	parameters
 	{
-		choice(name: 'Server', choices: ['Loginwebapp1', 'Loginwebapp2'])
-		string(name: 'password')
+		choice(name: 'Server', choices: ['Loginwebapp1', 'Loginwebapp2'], description: 'This parameter is used for Server Selection')
+		string(name: 'password', defaultValue: 'devops', description: 'This paramter is used for password')
 	}	
 	stages
 	{
@@ -43,11 +43,13 @@ pipeline
 					echo "Project has been built $Server"
 					if ( Server == "Loginwebapp1")
 					{
-						echo "You have selected Loginwebapp1"
+						echo "You have selected Loginwebapp2"
+						sshpass $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
 					}
 					else if ( Server == "Loginwebapp2" )
 					{
 						echo "You have selected Loginwebapp2"
+						sshpass $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
 					}
 					else
 					{
