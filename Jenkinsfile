@@ -37,7 +37,7 @@ pipeline
 		{	
 			steps
 			{
-				echo "Project has been built"
+				echo "Project has been built $Server"
 			}
 		}
 	}
