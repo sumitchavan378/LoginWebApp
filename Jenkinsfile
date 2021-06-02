@@ -8,7 +8,7 @@ pipeline
 	parameters
 	{
 		choice(name: 'Server', choices: ['Loginwebapp1', 'Loginwebapp2'], description: 'This parameter is used for Server Selection')
-		string(name: 'password', defaultValue: 'devops', description: 'This paramter is used for password')
+		string(name: 'password', defaultValue: 'devops')
 	}	
 	stages
 	{
@@ -44,7 +44,7 @@ pipeline
 					if ( Server == "Loginwebapp1")
 					{
 						echo "You have selected Loginwebapp2"
-						sh 'sshpass -p $devops scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
+						sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
 					}
 					else if ( Server == "Loginwebapp2" )
 					{
