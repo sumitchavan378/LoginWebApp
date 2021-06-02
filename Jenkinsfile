@@ -40,11 +40,11 @@ pipeline
 				script
 				{
 					echo "Project has been built $Server"
-					if ( $Server == Loginwebapp1)
+					if ( Server == "Loginwebapp1")
 					{
 						echo "You have selected Loginwebapp1"
 					}
-					else if ( $Server == Loginwebapp2 )
+					else if ( Server == "Loginwebapp2" )
 					{
 						echo "You have selected Loginwebapp2"
 					}
