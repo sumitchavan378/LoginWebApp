@@ -44,12 +44,12 @@ pipeline
 					if ( Server == "Loginwebapp1")
 					{
 						echo "You have selected Loginwebapp2"
-						sshpass devops scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
+						sh 'sshpass -p $devops scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
 					}
 					else if ( Server == "Loginwebapp2" )
 					{
 						echo "You have selected Loginwebapp2"
-						sshpass devops scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
+						sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
 					}
 					else
 					{
