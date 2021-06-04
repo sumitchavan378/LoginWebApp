@@ -19,18 +19,24 @@ pipeline
                 checkout scm
             }
         }
-        stage('Clean')
+        stage('Maven Tasks')
         {
-            steps
+            parallel
             {
-                sh '/root/apache-maven-3.6.3/bin/mvn clean'
-            }
-        }
-        stage('Build')
-        {
-            steps
-            {
-                sh '/root/apache-maven-3.6.3/bin/mvn install'
+                stage('Clean')
+                {
+                    steps
+                    {
+                        sh '/root/apache-maven-3.6.3/bin/mvn clean'
+                    }
+                }
+                stage('Build')
+                {
+                    steps
+                    {
+                        sh '/root/apache-maven-3.6.3/bin/mvn install'
+                    }
+                }
             }
         }
         stage('Deployment')
