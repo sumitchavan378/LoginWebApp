@@ -45,11 +45,18 @@ pipeline
             {
                 script
                 {   
-		    sh 'ping -c1 172.17.0.2'
-                    if ( Server == "Loginwebapp1" )
-                    {
+		    if ( Server == "Loginwebapp1" )
+		    {
+		    	sh 'ping -c1 172.17.0.2'
+		    	if ( $? -eq 0 )
+                    	{
                         sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
-                    }
+                    	}
+		    	else
+			{
+				echo "Something went wrong"
+			}
+		    }
                     else if ( Server == "Loginwebapp2" )
                     {
                         sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/'
