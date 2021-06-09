@@ -3,7 +3,7 @@ pipeline
     agent any
     triggers
     {
-        pollSCM('* * * * *')
+        pollSCM('* * 30 * *')
     }
     parameters
     {
@@ -44,7 +44,9 @@ pipeline
             steps
             {
                 script
-                {
+                {   
+		    server1=${uname}
+                    echo $server1
                     if ( Server == "Loginwebapp1" )
                     {
                         sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
