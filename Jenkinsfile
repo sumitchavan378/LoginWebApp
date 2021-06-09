@@ -50,7 +50,7 @@ pipeline
                 	if [ $? -eq 0 ];
 			then
 	                        sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
-				echo "WAR has been deployed successfully"
+				echo WAR has been deployed successfully
                         else
                                 echo "Something went wrong"
                         fi
