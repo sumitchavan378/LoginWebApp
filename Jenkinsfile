@@ -45,7 +45,7 @@ pipeline
             {
                 script
                 {   
-		    server1=${uname}
+		    server1=uname
                     echo $server1
                     if ( Server == "Loginwebapp1" )
                     {
