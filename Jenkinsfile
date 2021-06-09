@@ -43,33 +43,33 @@ pipeline
         {
             steps
             {
-                script
-                {   
-		    if ( Server == "Loginwebapp1" )
-		    {
-		    	if ( $? -eq 0 )
-                    	{
-                        sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
-                    	}
-		    	else
-			{
-				echo "Something went wrong"
-			}
-		    }
-                    else if ( Server == "Loginwebapp2" )
-                    {
-                        sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/'
-                    }
-                    else if ( Server == "all" )
-                    {
-                        sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
-                        sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/'
-                    }
-                    else
-                    {
+		
+            	sh(returnStdout: true, script: '''#!/bin/bash
+            	if [ $Server == "Loginwebapp1" ];
+		then
+                	if [ $? -eq 0 ];
+			then
+	                        sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
+                        else
+                                echo "Something went wrong"
+                        fi
+                  
+		elif [ $Server == "Loginwebapp2" ];
+		then
+                    	sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/
+                    
+                elif [ $Server == "all" ];
+		then
+                    	sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/
+                        sshpass -p $password scp target/LoginWebApp.war root@172.17.0.3:/apache-tomcat-9.0.44/webapps/
+                else
+                
                         echo "Wrong Choice"
-                    }
-                }
+                fi
+
+        	'''.stripIndent())   
+		    
+                
             }
         }
     }
