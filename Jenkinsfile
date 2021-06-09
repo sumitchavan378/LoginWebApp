@@ -45,7 +45,7 @@ pipeline
             {
                 script
                 {   
-		    sh 'uname'
+		    sh 'ping -c1 172.17.0.2'
                     if ( Server == "Loginwebapp1" )
                     {
                         sh 'sshpass -p $password scp target/LoginWebApp.war root@172.17.0.2:/apache-tomcat-9.0.44/webapps/'
