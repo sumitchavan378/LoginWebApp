@@ -1,9 +1,6 @@
 pipeline
 {
 	agent
-	{
-		label 'Loginwebapp1'	
-	}
 	triggers
 	{
 		pollSCM('* * * * *')
@@ -52,4 +49,11 @@ pipeline
 			}
 		}
 	}
+	post
+	{
+        	always 
+		{
+            		emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        	}
+    	}
 }
