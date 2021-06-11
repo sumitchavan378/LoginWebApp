@@ -1,11 +1,8 @@
 pipeline
 {
-	agent 
+	agent  
 	{
-		docker
-		{
-			label 'Loginwebapp1'
-		}
+		label 'Loginwebapp1'	
 	}
 	triggers
 	{
