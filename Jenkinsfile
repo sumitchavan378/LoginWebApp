@@ -1,6 +1,12 @@
 pipeline
 {
-	agent any
+	agent 
+	{
+		node
+		{
+			label 'Loginwebapp1'
+		}
+	}
 	triggers
 	{
 		pollSCM('* * * * *')
