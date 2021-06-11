@@ -19,14 +19,14 @@ pipeline
 		{
 			steps
 			{
-				echo "Cloned"
+				checkout scm
 			}
 		}
 		stage('Build')
 		{
 			steps
 			{
-				sh 'mvn install'
+				sh '/root/apache-maven-3.6.3/bin/mvn install'
 			}
 		}
 		stage('Deployment')
