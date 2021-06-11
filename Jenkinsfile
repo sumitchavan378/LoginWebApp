@@ -2,7 +2,7 @@ pipeline
 {
 	agent
 	{
-                label 'Loginwebapp1'
+                label 'Loginwebapp2'
         }
 	triggers
 	{
