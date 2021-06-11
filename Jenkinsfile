@@ -53,7 +53,7 @@ pipeline
 	{
         	always 
 		{
-            		emailext attachLog: true, body: 'This is email testing', subject: 'This is email test', to: 'sumitchavan378@gmail.com'
+            		emailext attachLog: true, body: 'The job has been build', subject: 'LoginWebApp Build', to: 'sumitchavan378@gmail.com'
         	}
     	}
 }
