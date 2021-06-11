@@ -2,7 +2,7 @@ pipeline
 {
 	agent 
 	{
-		node
+		docker
 		{
 			label 'Loginwebapp1'
 		}
